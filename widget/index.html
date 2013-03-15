@@ -1,0 +1,76 @@
+
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+                <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		
+	</head>
+	<body>
+		
+
+		<p><a href="#content" title="Content Lightbox"><div id="SnapABug_Button" class="SnapABug_Button"><img id="SnapABug_bImg" style="position: relative; bottom: -580px; left: 1220px; display: inline;" src="http://www.snapengage.com/statusImage?w=8ca245c1-dc1f-4530-ae2a-d89f22e30118&amp;rand=ac540090&amp;on=https%3A%2F%2Fcommondatastorage.googleapis.com%2Fcode.snapengage.com%2Fbtn%2Fhelp_bottom_en.png&amp;off=https%3A%2F%2Fcommondatastorage.googleapis.com%2Fcode.snapengage.com%2Fbtn%2Fhelp_bottom_en.png" alt="Help" border="0" onmouseover="SnapABug.buttonOver();" onmouseout="SnapABug.buttonOut();"></div> </a> </p>
+		
+		<div class="lightbox" id="content">
+			<div class="w60p h400 scroll">
+				
+				<p><div id="example-widget-container"><strong></strong></div></p>
+				
+			</div>
+		<p class="close"><a href="#" title="Close This Content Lightbox">Close <span>X</span></a></p>
+		</div>
+<script type="text/javascript">
+    (function() {
+
+  
+    var jQuery;
+    if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
+        var script_tag = document.createElement('script');
+        script_tag.setAttribute("type","text/javascript");
+        script_tag.setAttribute("src","http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js");
+        if (script_tag.readyState) {
+          script_tag.onreadystatechange = function () { 
+              if (this.readyState == 'complete' || this.readyState == 'loaded') {
+                  scriptLoadHandler();
+              }
+          };
+        } else {
+          script_tag.onload = scriptLoadHandler;
+        }
+       
+        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+    } else {
+       
+        jQuery = window.jQuery;
+        main();
+    }
+
+   
+    function scriptLoadHandler() {
+      
+        jQuery = window.jQuery.noConflict(true);
+       
+        main(); 
+    }
+
+   
+    function main() { 
+        jQuery(document).ready(function($) { 
+        $.getJSON("data/search.json", function (data) {
+        var twt = $('#example-widget-container');
+            twt.html('');
+            
+                twt.append('<div>' + data['foo'] + '<p>' + data['bar'] + '</p>');
+        
+})
+});  	
+    }
+
+    })(); 
+    </script>
+  
+		
+	</body>
+</html>
